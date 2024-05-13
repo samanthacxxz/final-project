@@ -1,0 +1,13 @@
+@font-face {
+    font-family: PlayfairDisplay-Regular;
+    src: url(../assets/fonts/Playfair_Display-static/PlayfairDisplay-Regular.ttf);
+}
+
+@font-face {
+    font-family: PlayfairDisplay-SemiBold;
+    src: url(../assets/fonts/Playfair_Display-static/PlayfairDisplay-SemiBold.ttf);
+}
+@font-face {
+    font-family: PlayfairDisplay-Bold;
+    src: url(../assets/fonts/Playfair_Display-static/PlayfairDisplay-Bold.ttf);
+}
