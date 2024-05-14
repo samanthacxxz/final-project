@@ -1,28 +1,53 @@
+/* header stylings, for all pages*/
+
 .header-container {
     width: 100%;
-    height: 20vh;
-    background-color: rgb(125, 140, 196);
+    height: 15vh;
+    background-color: var(--color-accent-one);
 
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 1;
+
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--gap-size-small);
 }
 
 .header-title {
     grid-column: 1 / 4;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'PlayfairDisplay-Bold';
+    letter-spacing: -2px;
+    font-size: var(--font-size-large);
+    color: var(--color-main);
+    background: none;
+
+    border: none;
 }
 
-.icon-search-container {
-    grid-column: 10 / 11;
+.header-nav {
+    grid-column: 10 / 13;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center ;
 }
+
 .icon-search-container img {
     width: 30%;
     height: 30%;
-}
-
-.icon-signup-container {
-    grid-column: 11 / 12;
-    width: 100%;
 }
 
 .icon-signup-container img {
@@ -30,9 +55,6 @@
     height: 30%;
 }
 
-.icon-menu-container {
-    grid-column: 12 / 13;
-}
 .icon-menu-container img {
     width: 30%;
     height: 30%;
@@ -47,18 +69,152 @@
     align-items: center;
 }
 
+/* search bar section in front page */
+
 .section-search {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
+    gap: var(--gap-size-small);
+    
     width: 100%;
     height: 85vh;
-    background-color: antiquewhite;
+    background-image: 
+        linear-gradient(
+            rgba(255, 255, 255, 0.5),
+            rgba(255, 255, 255, 0.5)
+        ),
+        url(../assets/images/books-backgorund.jpg)
+    ;
 }
 
 .slogan {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     font-size: var(--font-size-large);
-    padding: 50px;
+    color: var(--color-main);
+    font-family: 'PlayfairDisplay-Bold';
+}
+
+.search-bar-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--gap-size-small);
+
+    padding-bottom: 30px;
+}
+
+.search-bar-container input {
+    width: 369px;
+    height: 32px;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--color-accent-two);
+}
+
+.search-bar-container button {
+    width: 58px;
+    height: 58px;
+    background-color: var(--color-accent-two);
+
+    border-radius: 100px;
+}
+
+.search-button-container img {
+    width: 35px;
+    height: 35px;
+    background-color: none;
+}
+
+
+.categories-span {
+    display: inline;
+    gap: var(--gap-size-small);
+}
+
+.categories-span button {
+    width: 240px;
+    height: 52px;
+    border-radius: 30px;
+    background-color: var(--color-accent-one);
+}
+
+.section-bestsellers-container {
+    width: 100%;
+    height: 1670px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color: var(--color-main);
+}
+
+.bestsellers-display-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: var(--gap-size-small);
+}
+
+.section-texts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-texts div {
+    font-size: var(--font-size-xxl);
+    color: var(--color-accent-one);
+}
+
+.section-texts p {
+    color: var(--color-accent-one);
+}
+
+
+.bestseller-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.top-bestseller-img {
+    width: 454px;
+    height: 543px;
+    background-color: aliceblue;
+    
+}
+
+.bestseller-info {
+    display: block;
+}
+
+.bestseller-info h3 {
+    font-size: var(--font-size-large);
+}
+
+.bestsellers-rest {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: var(--gap-size-small); 
+}
+
+
+.bestseller-item {
+    width: 217px;
+    height:260px;
+    background-color: aliceblue;
+    border: 1px solid black;
+
+    display: block;
 }
