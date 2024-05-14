@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheBookList-login</title>
+
+    <link rel="stylesheet" href="../src/css/styles.css">
+    <link rel="stylesheet" href="../src/css/reset.css">
+    <link rel="stylesheet" href="../src/css/variables.css">
+    <link rel="stylesheet" href="../src/css/font.css">
+    <link rel="stylesheet" href="../src/css/login.css">
+
+</head>
+<body>
+    <header class="header-container">
+        <span class="title-container">
+            <button class="header-title">
+                TheBookList
+                <a href="file:///Users/SamanthaCruz/sacr001/Sites/11/final-project/dist/index.html"></a>
+            </button>
+        </span>
+        <nav class="header-nav">
+            <span class="icon-search-container">
+                <img src="../src/assets/images/search-svgrepo-com.svg" alt="">
+            </span>
+            <span class="icon-signup-container">
+                <img src="../src/assets/images/user-add-svgrepo-com.svg" alt="">
+            </span>
+            <span class="icon-menu-container">
+                <img src="../src/assets/images/menu-board-svgrepo-com.svg" alt="">
+            </span>
+        </nav>
+    </header>
+
+    <main>
+        <section class="main-container">
+            <form class="form-login">
+                <fieldset class="form-login-container">
+                    <legend>TheBookListClub</legend>
+
+                    <section class="section-login-input">
+                        <div class="input-email">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" class="email" autocomplete="username">
+                            <p class="email-error"></p>
+                        </div>
+    
+                        <div class="input-password">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" class="password" autocomplete="current-password">
+                            <p class="password-error"></p>
+                        </div>
+                    </section>
+
+                    <p> Not a member of theBookListCLub? Create one
+                        <button class="signup-form_open">here</button>
+                    </p>
+
+                    <button class="login-button">Log In</button>
+
+                </fieldset>
+            </form>
+            
+<!------------------------------------------------------------------------------->
+            <div class="sign-up-form-container">
+                <button class="sign-up-form__close">X</button>
+            </div>
+
+            <form class="form-signup">
+                <fieldset class="form-signup-container">
+                    <legend>TheBookListClub</legend>
+                    <section class="section-signup-input">
+                        <div class="signup-input-name-group">
+                            <div class="input-signup-firstname">
+                                <label for="firstname">First Name</label>
+                                <input type="text" name="firstname" class="firstname">    
+                            </div>
+                            <div class="input-signup-lastname">
+                                <label for="lastname">Last Name</label>
+                                <input type="text" name="lastname" class="lastname">    
+                            </div>
+                        </div>
+                        <div class="input-signup-email">
+                            <label for="signup-email">Email</label>
+                            <input type="email" name="signup-email" class="signup-email" autocomplete="username">    
+                        </div>
+                        <div class="input-signup-password">
+                            <label for="signup-password">Create Password</label>
+                            <input type="password" name="signup-password" class="signup-password" autocomplete="new-password">
+                        </div>
+
+                        <p class="signup-error">Error</p>
+
+                        <button class="signup-button">Sign Up</button>
+
+                    </section>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+    <script src="../src/js/index.js" type="module"></script>
+</body>
+</html>
