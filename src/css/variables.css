@@ -1,5 +1,15 @@
 :root {
     --font-size-regular: 20px;
+    --font-size-xxl: 64px;
     --font-size-large: 50px;
     --font-size-small: 10px;
+
+    --gap-size-small: 25px;
+    --gap-size-medium: 30px;
+    --gap-size-large: 35px;
+
+    --color-main: rgb(52, 64, 106);
+
+    --color-accent-one: rgb(255, 218, 163);
+    --color-accent-two: rgb(252, 240, 223);
 }
