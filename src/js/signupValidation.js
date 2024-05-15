@@ -9,13 +9,14 @@ const validateSignupForm = (firstname, lastname, email, password, errorMessage) 
         errorStatus = false;
         errorMessage.style.visiibility = 'hidden';
         errorMessage.textContent = '';
-        console.log('all good!')
-    }
+        console.log('all good!');
+    };
 
     const signupErrorStatus = () => {
-        return errorStatus;
-    }
-    return { signupErrorStatus }
-}
+        return errorStatus
+    };
+    return {signupErrorStatus};
+
+};
 
 export {validateSignupForm};

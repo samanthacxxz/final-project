@@ -76,22 +76,34 @@ signupButton.addEventListener('click', (e) => {
     validateSignupForm(signupFirstnameInput.value, signupLastnameInput.value, signupEmailInput.value, signupPasswordInput.value, signupError);
 });
 
+// HANDLE TO CREATE NEW USER AND ADD TO FIREBASE
 function signupUser(){
-    const {signupErrorStatus} = validateSignupForm(
-        signupFirstnameInput.value,
-        signupLastnameInput.value,
-        signupEmailInput.value,
-        signupPasswordInput.value,
+    const { signupErrorStatus } = validateSignupForm(
+        signupFirstnameInput.value.trim(),
+        signupLastnameInput.value.trim(),
+        signupEmailInput.value.trim(),
+        signupPasswordInput.value.trim(),
         signupError
     );
-    if (signupErrorStatus()) {
+    if (signupErrorStatus()){
         return
     } else {
         const newUser = {
-            firstname: signupFirstnameInput.value,
-            lastname: signupLastnameInput.value,
-            email: signupEmailInput.value,
-            password: signupPasswordInput.value
+            firstname: signupFirstnameInput.value.trim(),
+            lastname: signupLastnameInput.value.trim(),
+            signupEmail: signupEmailInput.value.trim(),
+            signupPassword: signupPasswordInput.value.trim()
         }
-    }
-}
+        createUserWithEmailAndPassword(authService,newUser.signupEmail,newUser.signupPassword)
+        .then(()=> {
+            signupForm.reset();
+            signupFormContainer.style.display = 'none';
+        });
+    };
+};
+
+// EVENT LISTENER - SIGNUP BUTTON
+signupButton.addEventListener('click', (e) =>{
+    e.preventDefault();
+    signupUser();
+});
