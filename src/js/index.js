@@ -95,7 +95,7 @@ function signupUser() {
             signupForm.reset();
             signupFormContainer.style.display = 'none';
         })
-        .then((err)=> console.log(err.message))
+        .catch((err)=> console.log(err.message))
     };
 };
 
