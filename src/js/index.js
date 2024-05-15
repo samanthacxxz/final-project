@@ -1,6 +1,8 @@
 import firebaseConfig from "./firebaseConfig";
+console.log(firebaseConfig);
+
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 // INITIALIZE FIREBASE
 initializeApp(firebaseConfig);
@@ -50,7 +52,7 @@ loginButton.addEventListener('click', (e) => {
         passwordError
     );
 });
-validateLoginForm(emailInput.value, passwordInput.value, emailError, passwordError)
+validateLoginForm(emailInput.value, passwordInput.value, emailError, passwordError);
 
 // EVENT LISTENER - OPEN SIGN UP FORM 
 openSignupFormButton.addEventListener('click', (e) => {
@@ -59,25 +61,19 @@ openSignupFormButton.addEventListener('click', (e) => {
     signupFormContainer.style.display = 'flex';
     loginFormContainer.style.display = 'none';
 
-})
+});
 
 // EVENT LISTENER - CLOSE SIGN UP FORM
 closeSignupFormButton.addEventListener('click', (e) => {
     e.preventDefault();
-    console.log('Sign In form closed!')
+    console.log('Sign In form closed!');
     signupFormContainer.style.display = 'none';
     loginFormContainer.style.display = 'flex';
 
-})
-
-// EVENT LISTENER - SIGN UP BUTTON 
-signupButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    validateSignupForm(signupFirstnameInput.value, signupLastnameInput.value, signupEmailInput.value, signupPasswordInput.value, signupError);
 });
 
 // HANDLE TO CREATE NEW USER AND ADD TO FIREBASE
-function signupUser(){
+function signupUser() {
     const { signupErrorStatus } = validateSignupForm(
         signupFirstnameInput.value.trim(),
         signupLastnameInput.value.trim(),
@@ -98,12 +94,13 @@ function signupUser(){
         .then(()=> {
             signupForm.reset();
             signupFormContainer.style.display = 'none';
-        });
+        })
+        .then((err)=> console.log(err.message))
     };
 };
 
 // EVENT LISTENER - SIGNUP BUTTON
-signupButton.addEventListener('click', (e) =>{
+signupButton.addEventListener('click', (e)=> {
     e.preventDefault();
     signupUser();
-});
+})
