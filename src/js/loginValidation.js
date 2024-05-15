@@ -58,4 +58,4 @@ const validateLoginForm = (email, password, emailErrorElement, passwordErrorElem
 
 }
 
-export { validateLoginForm }
+export {validateLoginForm}
