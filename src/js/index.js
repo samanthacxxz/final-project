@@ -1,6 +1,6 @@
 import firebaseConfig from "./firebaseConfig";
-import {initializeApp} from "firebase/app";
-import {getAuth} from "firebase/auth"
+import { initializeApp } from "firebase/app";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth"
 
 // INITIALIZE FIREBASE
 initializeApp(firebaseConfig);
@@ -77,5 +77,21 @@ signupButton.addEventListener('click', (e) => {
 });
 
 function signupUser(){
-    
+    const {signupErrorStatus} = validateSignupForm(
+        signupFirstnameInput.value,
+        signupLastnameInput.value,
+        signupEmailInput.value,
+        signupPasswordInput.value,
+        signupError
+    );
+    if (signupErrorStatus()) {
+        return
+    } else {
+        const newUser = {
+            firstname: signupFirstnameInput.value,
+            lastname: signupLastnameInput.value,
+            email: signupEmailInput.value,
+            password: signupPasswordInput.value
+        }
+    }
 }
