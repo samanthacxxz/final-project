@@ -1,5 +1,6 @@
 // IMPORTS
-import { validateLoginForm } from "./loginValidation.js";
+import { validateLoginForm } from "./loginValidation";
+import { validateSignupForm } from "./signupValidation";
 
 // SELECTING LOG IN FORM ELEMENTS
 
@@ -19,14 +20,16 @@ const submissionError = document.querySelector('.submission-error');
 const signupForm = document.querySelector('.signup-form');
 const signupFormContainer = document.querySelector('.form-signup-section');
 
-const signupFirstnameInput = document.querySelector('.signup-firstname');
-const signupLastnameInput = document.querySelector('.signup-lastname');
+const signupFirstnameInput = document.querySelector('.firstname');
+const signupLastnameInput = document.querySelector('.lastname');
 const signupEmailInput = document.querySelector('.signup-email');
 const signupPasswordInput = document.querySelector('.signup-password');
 
 const signupError = document.querySelector('.signup-error');
 const closeSignupFormButton = document.querySelector('.signup-form__close');
 const openSignupFormButton = document.querySelector('.signup-form__open');
+
+const signupButton = document.querySelector('.signup-button');
 
 // EVENT LISTENER TO LOG IN BUTTON
 
@@ -60,3 +63,10 @@ closeSignupFormButton.addEventListener('click', (e) => {
     loginFormContainer.style.display = 'flex';
 
 })
+
+// EVENT LISTENER - SIGN UP BUTTON 
+
+signupButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    validateSignupForm(signupFirstnameInput.value, signupLastnameInput.value, signupEmailInput.value, signupPasswordInput.value, signupError);
+});
