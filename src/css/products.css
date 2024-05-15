@@ -1,0 +1,33 @@
+html {
+    background-color: var(--color-accent-two);
+}
+
+h2 {
+    font-size: var(--font-size-large);
+    text-align: center;
+    padding: var(--gap-size-medium);
+}
+
+.search-products-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-products-display {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: var(--gap-size-small);
+
+    padding: var(--gap-size-medium);
+}
+
+.products-book-item {
+    width: 256px;
+    height: 306px;
+    background-color: var(--color-accent-one);
+
+    display: block;
+}
