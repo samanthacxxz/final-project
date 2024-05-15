@@ -4,7 +4,7 @@ import { validateLoginForm } from "./loginValidation.js";
 // SELECTING LOG IN FORM ELEMENTS
 
 const loginForm = document.querySelector('.form-login');
-const loginFormContainer = document.querySelector('.login-form-section');
+const loginFormContainer = document.querySelector('.form-login-section');
 
 const emailInput = document.querySelector('.email');
 const passwordInput = document.querySelector('.password');
@@ -17,7 +17,7 @@ const submissionError = document.querySelector('.submission-error');
 // SELECTING SIGN UP FORM ELEMENTS 
 
 const signupForm = document.querySelector('.signup-form');
-const signupFormContainer = document.querySelector('.signup-form-section');
+const signupFormContainer = document.querySelector('.form-signup-section');
 
 const signupFirstnameInput = document.querySelector('.signup-firstname');
 const signupLastnameInput = document.querySelector('.signup-lastname');
@@ -25,8 +25,8 @@ const signupEmailInput = document.querySelector('.signup-email');
 const signupPasswordInput = document.querySelector('.signup-password');
 
 const signupError = document.querySelector('.signup-error');
-const closeSignupFormButton = document.querySelector('.signup-form-container__close');
-const openSignupFormButton = document.querySelector('.signup-form-container__open ');
+const closeSignupFormButton = document.querySelector('.signup-form__close');
+const openSignupFormButton = document.querySelector('.signup-form__open');
 
 // EVENT LISTENER TO LOG IN BUTTON
 
@@ -39,5 +39,24 @@ loginButton.addEventListener('click', (e) => {
         passwordError
     );
 });
-
 validateLoginForm(emailInput.value, passwordInput.value, emailError, passwordError)
+
+// EVENT LISTENER - OPEN SIGN UP FORM 
+
+openSignupFormButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log("Open Signup Form Button clicked");
+    signupFormContainer.style.display = 'flex';
+    loginFormContainer.style.display = 'none';
+
+})
+
+// EVENT LISTENER - CLOSE SIGN UP FORM
+
+closeSignupFormButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log('Sign In form closed!')
+    signupFormContainer.style.display = 'none';
+    loginFormContainer.style.display = 'flex';
+
+})
