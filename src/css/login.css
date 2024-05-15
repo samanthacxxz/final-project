@@ -96,6 +96,8 @@ legend {
     width: 10rem;
     height: 4rem;
     background-color: var(--color-main);
+    color:aliceblue;
+    border-radius: 30px;
     
 }
 
@@ -111,6 +113,7 @@ legend {
 
 .email-error,
 .password-error,
-.submission-error, .signup-error {
+.submission-error,
+.signup-error {
     visibility: hidden;
 }
