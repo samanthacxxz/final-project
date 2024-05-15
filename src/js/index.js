@@ -1,12 +1,18 @@
-// IMPORTS
 import firebaseConfig from "./firebaseConfig";
-console.log(firebaseConfig);
+import {initializeApp} from "firebase/app";
+import {getAuth} from "firebase/auth"
 
+// INITIALIZE FIREBASE
+initializeApp(firebaseConfig);
+
+// INITIALIZE AUTH SERVICE
+const authService = getAuth();
+
+// IMPORTS
 import { validateLoginForm } from "./loginValidation";
 import { validateSignupForm } from "./signupValidation";
 
 // SELECTING LOG IN FORM ELEMENTS
-
 const loginForm = document.querySelector('.form-login');
 const loginFormContainer = document.querySelector('.form-login-section');
 
@@ -35,7 +41,6 @@ const openSignupFormButton = document.querySelector('.signup-form__open');
 const signupButton = document.querySelector('.signup-button');
 
 // EVENT LISTENER TO LOG IN BUTTON
-
 loginButton.addEventListener('click', (e) => {
     e.preventDefault();
     validateLoginForm(
@@ -48,7 +53,6 @@ loginButton.addEventListener('click', (e) => {
 validateLoginForm(emailInput.value, passwordInput.value, emailError, passwordError)
 
 // EVENT LISTENER - OPEN SIGN UP FORM 
-
 openSignupFormButton.addEventListener('click', (e) => {
     e.preventDefault();
     console.log("Open Signup Form Button clicked");
@@ -58,7 +62,6 @@ openSignupFormButton.addEventListener('click', (e) => {
 })
 
 // EVENT LISTENER - CLOSE SIGN UP FORM
-
 closeSignupFormButton.addEventListener('click', (e) => {
     e.preventDefault();
     console.log('Sign In form closed!')
@@ -68,8 +71,11 @@ closeSignupFormButton.addEventListener('click', (e) => {
 })
 
 // EVENT LISTENER - SIGN UP BUTTON 
-
 signupButton.addEventListener('click', (e) => {
     e.preventDefault();
     validateSignupForm(signupFirstnameInput.value, signupLastnameInput.value, signupEmailInput.value, signupPasswordInput.value, signupError);
 });
+
+function signupUser(){
+    
+}
