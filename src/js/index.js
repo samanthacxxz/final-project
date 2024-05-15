@@ -1,4 +1,7 @@
 // IMPORTS
+import firebaseConfig from "./firebaseConfig";
+console.log(firebaseConfig);
+
 import { validateLoginForm } from "./loginValidation";
 import { validateSignupForm } from "./signupValidation";
 
