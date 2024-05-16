@@ -2,7 +2,7 @@ import firebaseConfig from "./firebaseConfig";
 console.log(firebaseConfig);
 
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signOut } from "firebase/auth";
 
 // INITIALIZE FIREBASE
 initializeApp(firebaseConfig);
@@ -41,6 +41,11 @@ const closeSignupFormButton = document.querySelector('.signup-form__close');
 const openSignupFormButton = document.querySelector('.signup-form__open');
 
 const signupButton = document.querySelector('.signup-button');
+
+const signoutButton = document.querySelector('.signout-button');
+
+const signoutButtonIcon = document.querySelector('.button-log_out');
+const loginButtonIcon = document.querySelector('.button-log_in');
 
 // EVENT LISTENER TO LOG IN BUTTON
 loginButton.addEventListener('click', (e) => {
@@ -94,6 +99,7 @@ function signupUser() {
         .then(()=> {
             signupForm.reset();
             signupFormContainer.style.display = 'none';
+            loginFormContainer.style.display = 'flex';
         })
         .catch((err)=> console.log(err.message))
     };
@@ -103,4 +109,29 @@ function signupUser() {
 signupButton.addEventListener('click', (e)=> {
     e.preventDefault();
     signupUser();
+    signoutButtonIcon.style.display = 'block',
+    loginButtonIcon.style.display = 'none';
+})
+
+// HANDLE SIGN OUT ACTION
+
+function signoutUser(){
+    signOut(authService)
+    .then(()=> {
+        console.log('signed out!');
+        signoutButtonIcon.style.display = 'none';
+        loginButtonIcon.style.display = 'block';
+        
+        loginFormContainer.style.display = 'flex';
+        
+    })
+    .catch((err)=> console.log(err.message))
+
+}
+
+// EVENT LISTENER - SIGNOUT BUTTON/ICON
+
+signoutButton.addEventListener('click', (e) =>{
+    e.preventDefault();
+    signoutUser();
 })

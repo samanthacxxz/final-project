@@ -52,13 +52,13 @@
 .icon-search-container img {
     width: 30%;
     height: 30%;
-    display: none;
+    visibility: hidden;
 }
 
 .icon-signup-container img {
     width: 30%;
     height: 30%;
-    display: none;
+    visibility: hidden;
 }
 
 .icon-log-container img {
@@ -73,6 +73,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+/* log in / log out icons  */
+
+.button-log_in {
+    display: block;
+}
+
+.button-log_out {
+    display: none;
 }
 
 /* search bar section in front page */
