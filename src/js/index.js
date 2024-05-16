@@ -2,7 +2,7 @@ import firebaseConfig from "./firebaseConfig";
 console.log(firebaseConfig);
 
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "firebase/auth";
 
 // INITIALIZE FIREBASE
 initializeApp(firebaseConfig);
@@ -15,7 +15,7 @@ import { validateLoginForm } from "./loginValidation";
 import { validateSignupForm } from "./signupValidation";
 
 // SELECTING LOG IN FORM ELEMENTS
-const loginForm = document.querySelector('.form-login');
+const loginForm = document.querySelector('.login-form');
 const loginFormContainer = document.querySelector('.form-login-section');
 
 const emailInput = document.querySelector('.email');
@@ -46,18 +46,6 @@ const signoutButton = document.querySelector('.signout-button');
 
 const signoutButtonIcon = document.querySelector('.button-log_out');
 const loginButtonIcon = document.querySelector('.button-log_in');
-
-// EVENT LISTENER TO LOG IN BUTTON
-loginButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    validateLoginForm(
-        emailInput.value,
-        passwordInput.value,
-        emailError,
-        passwordError
-    );
-});
-validateLoginForm(emailInput.value, passwordInput.value, emailError, passwordError);
 
 // EVENT LISTENER - OPEN SIGN UP FORM 
 openSignupFormButton.addEventListener('click', (e) => {
@@ -134,4 +122,36 @@ function signoutUser(){
 signoutButton.addEventListener('click', (e) =>{
     e.preventDefault();
     signoutUser();
+})
+
+// HANDLE LOG IN ACTION
+
+function loginUser(){
+    const {loginFormStatus} = validateLoginForm(
+        emailInput.value,
+        passwordInput.value,
+        emailError,
+        passwordError
+    );
+    if(loginFormStatus()) {
+        return
+    } else {
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
+        signInWithEmailAndPassword(authService, email, password)
+        .then(()=> {
+            loginForm.reset();
+            console.log('you are now logged in! :)');
+        })
+        /*.catch((err)=>{
+            submissionError.textContent = err.message
+        }) */
+    };
+};
+
+loginButton.addEventListener('click', (e)=>{
+    e.preventDefault();
+    loginUser();
+    loginButtonIcon.style.display = 'none';
+    signoutButtonIcon.style.display = 'block';
 })
