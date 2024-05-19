@@ -143,9 +143,9 @@ function loginUser(){
             loginForm.reset();
             console.log('you are now logged in! :)');
         })
-        /*.catch((err)=>{
+        .catch((err)=>{
             submissionError.textContent = err.message
-        }) */
+        })
     };
 };
 
