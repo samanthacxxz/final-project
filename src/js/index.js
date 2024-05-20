@@ -155,3 +155,23 @@ loginButton.addEventListener('click', (e)=>{
     loginButtonIcon.style.display = 'none';
     signoutButtonIcon.style.display = 'block';
 })
+
+// FETCH BOOKS FROM API
+
+async function fetchData(){
+    const response = await fetch('https://www.googleapis.com/books/v1/volumes?q=flowers+inauthor:keyes&key=AIzaSyA7Fg_QwQmZNakl3c1wX94vzhygunyTaf0');
+    const data = await response.json();
+    console.log(data)
+}
+
+fetchData();
+
+// FETCH OPEN LIBRARY API
+
+async function fetchOpenLibraryData() {
+    const response = await fetch('https://openlibrary.org/search.json?author=tolkien&sort=new')
+    const data = await response.json();
+    console.log(data);
+}
+
+fetchOpenLibraryData();
