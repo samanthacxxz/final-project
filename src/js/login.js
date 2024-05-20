@@ -2,7 +2,7 @@ import { validateLoginForm } from "./loginValidation";
 import { validateSignupForm } from "./signupValidation";
 
 
-export function handleLoginPage(authService, signOut){
+export function handleLoginPage(authService, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword){
 
     const loginForm = document.querySelector('.login-form');
     const loginFormContainer = document.querySelector('.form-login-section');
@@ -104,6 +104,7 @@ export function handleLoginPage(authService, signOut){
         .catch((err)=> console.log(err.message))
 
     }
+    
 
     // EVENT LISTENER - SIGNOUT BUTTON/ICON
 

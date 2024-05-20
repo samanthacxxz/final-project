@@ -12,43 +12,6 @@ const authService = getAuth();
 
 // IMPORTS
 import { handleLoginPage } from "./login";
-/*
-import { validateLoginForm } from "./loginValidation";
-import { validateSignupForm } from "./signupValidation";
-*/
-// SELECTING LOG IN FORM ELEMENTS
-const loginForm = document.querySelector('.login-form');
-const loginFormContainer = document.querySelector('.form-login-section');
-
-const emailInput = document.querySelector('.email');
-const passwordInput = document.querySelector('.password');
-const loginButton = document.querySelector('.login-button');
-
-const emailError = document.querySelector('.email-error');
-const passwordError = document.querySelector('.password-error');
-const submissionError = document.querySelector('.submission-error');
-
-// SELECTING SIGN UP FORM ELEMENTS 
-
-const signupForm = document.querySelector('.signup-form');
-const signupFormContainer = document.querySelector('.form-signup-section');
-
-const signupFirstnameInput = document.querySelector('.firstname');
-const signupLastnameInput = document.querySelector('.lastname');
-const signupEmailInput = document.querySelector('.signup-email');
-const signupPasswordInput = document.querySelector('.signup-password');
-
-const signupError = document.querySelector('.signup-error');
-const closeSignupFormButton = document.querySelector('.signup-form__close');
-const openSignupFormButton = document.querySelector('.signup-form__open');
-
-const signupButton = document.querySelector('.signup-button');
-
-const signoutButton = document.querySelector('.signout-button');
-
-const signoutButtonIcon = document.querySelector('.button-log_out');
-const loginButtonIcon = document.querySelector('.button-log_in');
-
 
 // Common functionality
 document.addEventListener("DOMContentLoaded", () => {
@@ -56,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const bodyClass = document.body.classList;
     
     if (bodyClass.contains('login-page')) {
-      handleLoginPage(authService, signOut);
+      handleLoginPage(authService, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword);
     } else if (bodyClass.contains('products-page')) {
       handleProductsPage();
     } else if (bodyClass.contains('home-page')) {
