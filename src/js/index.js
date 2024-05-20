@@ -11,9 +11,11 @@ initializeApp(firebaseConfig);
 const authService = getAuth();
 
 // IMPORTS
+import { handleLoginPage } from "./login";
+/*
 import { validateLoginForm } from "./loginValidation";
 import { validateSignupForm } from "./signupValidation";
-
+*/
 // SELECTING LOG IN FORM ELEMENTS
 const loginForm = document.querySelector('.login-form');
 const loginFormContainer = document.querySelector('.form-login-section');
@@ -47,6 +49,21 @@ const signoutButton = document.querySelector('.signout-button');
 const signoutButtonIcon = document.querySelector('.button-log_out');
 const loginButtonIcon = document.querySelector('.button-log_in');
 
+
+// Common functionality
+document.addEventListener("DOMContentLoaded", () => {
+
+    const bodyClass = document.body.classList;
+    
+    if (bodyClass.contains('login-page')) {
+      handleLoginPage(authService, signOut);
+    } else if (bodyClass.contains('products-page')) {
+      handleProductsPage();
+    } else if (bodyClass.contains('home-page')) {
+        handleHomePage();
+    }
+});
+/*
 // EVENT LISTENER - OPEN SIGN UP FORM 
 openSignupFormButton.addEventListener('click', (e) => {
     e.preventDefault();
@@ -154,7 +171,7 @@ loginButton.addEventListener('click', (e)=>{
     loginUser();
     loginButtonIcon.style.display = 'none';
     signoutButtonIcon.style.display = 'block';
-})
+}) */
 
 // FETCH BOOKS FROM API
 
