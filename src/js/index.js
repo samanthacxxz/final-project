@@ -12,11 +12,13 @@ const authService = getAuth();
 
 // IMPORTS
 import { handleLoginPage } from "./login";
+import { commonFunctionality } from "./common";
 
 // Common functionality
 document.addEventListener("DOMContentLoaded", () => {
-
     const bodyClass = document.body.classList;
+
+    commonFunctionality(bodyClass, handleHomePage());
     
     if (bodyClass.contains('login-page')) {
       handleLoginPage(authService, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword);
@@ -26,3 +28,23 @@ document.addEventListener("DOMContentLoaded", () => {
         handleHomePage();
     }
 });
+
+// HANDLING EVERYTHING WITHIN HOME PAGE
+
+export function handleHomePage() {
+    fetchBooksData();
+    const searchInput = document.querySelector('.search-bar-input');
+    const searchButtonIcon = document.querySelector('.search-button-container');
+
+
+
+}
+handleHomePage();
+
+// FETCH OPEN LIBRARY API 
+
+async function fetchBooksData(){
+    const response = await fetch(`https://openlibrary.org/search.json?q=kawakami`)
+    const data = await response.json();
+    console.log(data);
+}
