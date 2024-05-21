@@ -40,6 +40,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/js/common.js":
+/*!**************************!*\
+  !*** ./src/js/common.js ***!
+  \**************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   commonFunctionality: function() { return /* binding */ commonFunctionality; }\n/* harmony export */ });\n/* harmony import */ var ___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! . */ \"./src/js/index.js\");\n\nfunction commonFunctionality(bodyClass) {\n  const homePageButton = document.querySelector('.header-title');\n  const myAccountButton = document.querySelector('.icon-log-container');\n\n  // HANDLING BUTTOM REDIRECTING TO HOME PAGE\n  homePageButton.addEventListener('click', e => {\n    if (bodyClass.contains('home-page')) {\n      (0,___WEBPACK_IMPORTED_MODULE_0__.handleHomePage)();\n    } else {\n      // Redirect to the home page\n      window.location.href = 'http://127.0.0.1:3000/dist/index.html'; // Replace '/' with the actual URL of your home page\n    }\n  });\n\n  // HANDLING REDIRECTING TO LOG IN PAGE\n}\n;\n\n//# sourceURL=webpack://final-project/./src/js/common.js?");
+
+/***/ }),
+
 /***/ "./src/js/firebaseConfig.js":
 /*!**********************************!*\
   !*** ./src/js/firebaseConfig.js ***!
@@ -56,7 +66,7 @@ eval("__webpack_require__.r(__webpack_exports__);\nconst firebaseConfig = {\n  a
   \*************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _firebaseConfig__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./firebaseConfig */ \"./src/js/firebaseConfig.js\");\n/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/app */ \"./node_modules/firebase/app/dist/esm/index.esm.js\");\n/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase/auth */ \"./node_modules/firebase/auth/dist/esm/index.esm.js\");\n/* harmony import */ var _login__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./login */ \"./src/js/login.js\");\n\nconsole.log(_firebaseConfig__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n\n\n// INITIALIZE FIREBASE\n(0,firebase_app__WEBPACK_IMPORTED_MODULE_1__.initializeApp)(_firebaseConfig__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n// INITIALIZE AUTH SERVICE\nconst authService = (0,firebase_auth__WEBPACK_IMPORTED_MODULE_2__.getAuth)();\n\n// IMPORTS\n\n\n// Common functionality\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n  const bodyClass = document.body.classList;\n  if (bodyClass.contains('login-page')) {\n    (0,_login__WEBPACK_IMPORTED_MODULE_3__.handleLoginPage)(authService, firebase_auth__WEBPACK_IMPORTED_MODULE_2__.signOut, firebase_auth__WEBPACK_IMPORTED_MODULE_2__.createUserWithEmailAndPassword, firebase_auth__WEBPACK_IMPORTED_MODULE_2__.signInWithEmailAndPassword);\n  } else if (bodyClass.contains('products-page')) {\n    handleProductsPage();\n  } else if (bodyClass.contains('home-page')) {\n    handleHomePage();\n  }\n});\n\n//# sourceURL=webpack://final-project/./src/js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   handleHomePage: function() { return /* binding */ handleHomePage; }\n/* harmony export */ });\n/* harmony import */ var _firebaseConfig__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./firebaseConfig */ \"./src/js/firebaseConfig.js\");\n/* harmony import */ var firebase_app__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! firebase/app */ \"./node_modules/firebase/app/dist/esm/index.esm.js\");\n/* harmony import */ var firebase_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! firebase/auth */ \"./node_modules/firebase/auth/dist/esm/index.esm.js\");\n/* harmony import */ var _login__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./login */ \"./src/js/login.js\");\n/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./common */ \"./src/js/common.js\");\n\nconsole.log(_firebaseConfig__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n\n\n// INITIALIZE FIREBASE\n(0,firebase_app__WEBPACK_IMPORTED_MODULE_1__.initializeApp)(_firebaseConfig__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n// INITIALIZE AUTH SERVICE\nconst authService = (0,firebase_auth__WEBPACK_IMPORTED_MODULE_2__.getAuth)();\n\n// IMPORTS\n\n\n\n// Common functionality\ndocument.addEventListener(\"DOMContentLoaded\", () => {\n  const bodyClass = document.body.classList;\n  (0,_common__WEBPACK_IMPORTED_MODULE_4__.commonFunctionality)(bodyClass, handleHomePage());\n  if (bodyClass.contains('login-page')) {\n    (0,_login__WEBPACK_IMPORTED_MODULE_3__.handleLoginPage)(authService, firebase_auth__WEBPACK_IMPORTED_MODULE_2__.signOut, firebase_auth__WEBPACK_IMPORTED_MODULE_2__.createUserWithEmailAndPassword, firebase_auth__WEBPACK_IMPORTED_MODULE_2__.signInWithEmailAndPassword);\n  } else if (bodyClass.contains('products-page')) {\n    handleProductsPage();\n  } else if (bodyClass.contains('home-page')) {\n    handleHomePage();\n  }\n});\n\n// HANDLING EVERYTHING WITHIN HOME PAGE\n\nfunction handleHomePage() {\n  fetchBooksData();\n  const searchInput = document.querySelector('.search-bar-input');\n  const searchButtonIcon = document.querySelector('.search-button-container');\n}\nhandleHomePage();\n\n// FETCH OPEN LIBRARY API \n\nasync function fetchBooksData() {\n  const response = await fetch(`https://openlibrary.org/search.json?q=kawakami`);\n  const data = await response.json();\n  console.log(data);\n}\n\n//# sourceURL=webpack://final-project/./src/js/index.js?");
 
 /***/ }),
 
@@ -241,7 +251,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
 /******/ 	var __webpack_exports__ = __webpack_require__("./src/js/index.js");
 /******/ 	
 /******/ })()
