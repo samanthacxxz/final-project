@@ -13,6 +13,7 @@ const authService = getAuth();
 // IMPORTS
 import { handleLoginPage } from "./login";
 import { commonFunctionality } from "./common";
+import { searchingBooksInAPI } from "./searchBar";
 
 // Common functionality
 document.addEventListener("DOMContentLoaded", () => {
@@ -32,19 +33,5 @@ document.addEventListener("DOMContentLoaded", () => {
 // HANDLING EVERYTHING WITHIN HOME PAGE
 
 export function handleHomePage() {
-    fetchBooksData();
-    const searchInput = document.querySelector('.search-bar-input');
-    const searchButtonIcon = document.querySelector('.search-button-container');
-
-
-
-}
-handleHomePage();
-
-// FETCH OPEN LIBRARY API 
-
-async function fetchBooksData(){
-    const response = await fetch(`https://openlibrary.org/search.json?q=kawakami`)
-    const data = await response.json();
-    console.log(data);
+    searchingBooksInAPI();
 }
