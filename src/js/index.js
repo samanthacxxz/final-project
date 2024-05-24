@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // HANDLING EVERYTHING WITHIN HOME PAGE
 
-function handleHomePage() {
+export function handleHomePage() {
   searchingBooksInAPI();
 }
 
@@ -69,17 +69,6 @@ const searchingBooksInAPI = () => {
       const limitedBooksFetched = data.docs.slice(0, 10);
       console.log(limitedBooksFetched);
   }
-  function renderSearchResults(searchResults) {
-    searchResults.forEach(result => {
-
-      //CREATE ELEMENTS FOR EACH RESULT
-      const li = document.createElement('li');
-      const bookTitle = document.createElement('div');
-      const bookAuthor = document.createElement('div');
-      const bookReleaseYear = document.createElement('div');
-      const bookImg = '';
 
 
-    })
-  }
 }

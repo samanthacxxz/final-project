@@ -1,4 +1,4 @@
-import { handleHomePage } from ".";
+import { handleHomePage } from "./index";
 
 export function commonFunctionality(bodyClass){
     const homePageButton = document.querySelector('.header-title');
@@ -13,8 +13,4 @@ export function commonFunctionality(bodyClass){
             window.location.href = 'http://127.0.0.1:3000/dist/index.html'; // Replace '/' with the actual URL of your home page
         }
     });
-
-    // HANDLING REDIRECTING TO LOG IN PAGE
-
-    
 };
