@@ -55,7 +55,6 @@ const searchingBooksInAPI = () => {
       }
   }
 
-
   searchButtonIcon.addEventListener('click', (e) => {
       performSearch();
   });
@@ -70,6 +69,7 @@ const searchingBooksInAPI = () => {
       console.log(limitedBooksFetched);
   }
 
+  // STORING SEARCH RESULTS TO STORAGE
   function storeSearchResults(data) {
     for (let searchResult of data) {
       const newResult = {
@@ -79,5 +79,25 @@ const searchingBooksInAPI = () => {
         bookImage: ''
       }
     }
+  }
+  // RENDERING SEARCH RESULT TO PAGE
+  const ul = document.querySelector('.products-book-item');
+
+  function renderSearchResults(results) {
+    results.forEach(result => {
+      const li = document.createElement('li');
+      const bookTitle = document.createElement('div');
+      const bookAuthor = document.createElement('div');
+      const bookReleaseYear = document.createElement('div');
+      const bookCover = document.createElement('div');
+      const bookIng = document.querySelector('image');
+
+      ul.append(li);
+      li.append(bookTitle, bookAuthor, bookReleaseYear, bookImage);
+      bookCover.append(bookImg); 
+      
+      //  SETTING THE CREATED CONTENT OF THE CREATED ELEMENTS
+      
+    })
   }
 }
