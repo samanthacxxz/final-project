@@ -61,23 +61,25 @@ const searchingBooksInAPI = () => {
   });
 
 
-  // FETCH OPEN LIBRARY API 
+  // FETCH OPEN LIBRARY API BASED ON USERS SEARCH
   async function fetchBooksData(query){
       const response = await fetch(`https://openlibrary.org/search.json?q=${(query)}`)
       const data = await response.json();
 
       const limitedBooksFetched = data.docs.slice(0, 10);
       console.log(limitedBooksFetched);
-
-      // SAVING EACH SEARCH WITH MAX. 10 ITEMS
-
-      const saveSearchResult = () => {
-          const savedResult = limitedBooksFetched;
-          
-          console.log('Results saved to storage!', savedResult)
-      }
-      saveSearchResult();
-      return limitedBooksFetched;
   }
+  function renderSearchResults(searchResults) {
+    searchResults.forEach(result => {
 
+      //CREATE ELEMENTS FOR EACH RESULT
+      const li = document.createElement('li');
+      const bookTitle = document.createElement('div');
+      const bookAuthor = document.createElement('div');
+      const bookReleaseYear = document.createElement('div');
+      const bookImg = '';
+
+
+    })
+  }
 }
