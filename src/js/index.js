@@ -70,5 +70,14 @@ const searchingBooksInAPI = () => {
       console.log(limitedBooksFetched);
   }
 
-
+  function storeSearchResults(data) {
+    for (let searchResult of data) {
+      const newResult = {
+        bookTitle: '',
+        bookAuthor: '',
+        bookReleaseYear: '',
+        bookImage: ''
+      }
+    }
+  }
 }
