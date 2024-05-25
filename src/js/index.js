@@ -63,41 +63,34 @@ const searchingBooksInAPI = () => {
   // FETCH OPEN LIBRARY API BASED ON USERS SEARCH
   async function fetchBooksData(query){
       const response = await fetch(`https://openlibrary.org/search.json?q=${(query)}`)
-      const data = await response.json();
-
-      const limitedBooksFetched = data.docs.slice(0, 10);
-      console.log(limitedBooksFetched);
+      const results = await response.json();
+      
+      const limitedSearchResults = results.docs.slice(0, 10);
+      renderSearchResults(limitedSearchResults);
   }
 
-  // STORING SEARCH RESULTS TO STORAGE
-  function storeSearchResults(data) {
-    for (let searchResult of data) {
-      const newResult = {
-        bookTitle: '',
-        bookAuthor: '',
-        bookReleaseYear: '',
-        bookImage: ''
-      }
-    }
-  }
   // RENDERING SEARCH RESULT TO PAGE
-  const ul = document.querySelector('.products-book-item');
-
   function renderSearchResults(results) {
+    const ul = document.querySelector('.results-list');
+
     results.forEach(result => {
-      const li = document.createElement('li');
+      const div = document.createElement('div');
       const bookTitle = document.createElement('div');
       const bookAuthor = document.createElement('div');
       const bookReleaseYear = document.createElement('div');
-      const bookCover = document.createElement('div');
-      const bookIng = document.querySelector('image');
 
-      ul.append(li);
-      li.append(bookTitle, bookAuthor, bookReleaseYear, bookImage);
-      bookCover.append(bookImg); 
+      div.append(bookTitle, bookAuthor, bookReleaseYear);
+      ul.append(div);
+
       
       //  SETTING THE CREATED CONTENT OF THE CREATED ELEMENTS
-      
+      bookTitle.textContent = result.title;
+      bookAuthor.textContent = result.author_name;
+      bookReleaseYear.textContent = result.publish_year[0];
+
+      // ADDING CLASS TO THE ELEMENTS
+
+      div.classList.add('.products-book-item');
     })
   }
 }

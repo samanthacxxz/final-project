@@ -271,5 +271,11 @@
     height: 306px;
     background-color: var(--color-accent-one);
 
-    display: block;
+    grid-column: 1fr;
+    grid-row: 1fr;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
