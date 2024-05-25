@@ -66,12 +66,13 @@ const searchingBooksInAPI = () => {
       const results = await response.json();
       
       const limitedSearchResults = results.docs.slice(0, 10);
+      console.log(limitedSearchResults);
       renderSearchResults(limitedSearchResults);
   }
 
   // RENDERING SEARCH RESULT TO PAGE
   function renderSearchResults(results) {
-    const ul = document.querySelector('.results-list');
+    const ul = document.querySelector('.section-products-display');
 
     results.forEach(result => {
       const div = document.createElement('div');
