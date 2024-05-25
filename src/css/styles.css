@@ -150,91 +150,6 @@
 }
 
 
-.categories-span {
-    display: inline;
-    gap: var(--gap-size-small);
-}
-
-.categories-span button {
-    width: 240px;
-    height: 52px;
-    border-radius: 30px;
-    background-color: var(--color-accent-one);
-}
-
-.section-bestsellers-container {
-    width: 100%;
-    height: 1670px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-
-    background-color: var(--color-main);
-}
-
-.bestsellers-display-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    gap: var(--gap-size-small);
-}
-
-.section-texts {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.section-texts div {
-    font-size: var(--font-size-xxl);
-    color: var(--color-accent-one);
-}
-
-.section-texts p {
-    color: var(--color-accent-one);
-}
-
-
-.bestseller-display {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-.top-bestseller-img {
-    width: 454px;
-    height: 543px;
-    background-color: aliceblue;
-    
-}
-
-.bestseller-info {
-    display: block;
-}
-
-.bestseller-info h3 {
-    font-size: var(--font-size-large);
-}
-
-.bestsellers-rest {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: var(--gap-size-small); 
-}
-
-
-.bestseller-item {
-    width: 217px;
-    height:260px;
-    background-color: aliceblue;
-    border: 1px solid black;
-
-    display: block;
-}
-
 /* SEARCH RESULTS - PRODUCTS CONTAINER */
 
 .search-products-container {
@@ -258,10 +173,11 @@
 .products-book-item {
     width: 100%;
     height: 100%;
-    background-color: var(--color-accent-one);
+    background-color: var(--color-accent-two);
 
-    grid-column: repeat(1fr);
-    grid-row: repeat(1fr);
+
+    grid-column: 1fr;
+    grid-row: 1fr;
 
     display: flex;
     flex-direction: column;

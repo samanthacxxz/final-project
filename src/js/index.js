@@ -76,22 +76,33 @@ const searchingBooksInAPI = () => {
 
     results.forEach(result => {
       const div = document.createElement('div');
+      const bookImg = document.createElement('img');
       const bookTitle = document.createElement('div');
       const bookAuthor = document.createElement('div');
       const bookReleaseYear = document.createElement('div');
 
-      div.append(bookTitle, bookAuthor, bookReleaseYear);
-      ul.append(div);
 
+      div.append(bookImg, bookTitle, bookAuthor, bookReleaseYear);
+      ul.append(div);
       
       //  SETTING THE CREATED CONTENT OF THE CREATED ELEMENTS
+      if (result.cover_i) {
+        bookImg.src = `https://covers.openlibrary.org/b/id/${result.cover_i}-M.jpg`;
+      } else {
+        bookImg.src = '../src/assets/images/no-book-cover.jpg';
+      }
+
       bookTitle.textContent = result.title;
       bookAuthor.textContent = result.author_name;
       bookReleaseYear.textContent = result.publish_year[0];
 
+
       // ADDING CLASS TO THE ELEMENTS
 
       div.classList.add('.products-book-item');
+      bookTitle.classList.add('.book-title');
+      bookAuthor.classList.add('.book-author');
+      bookReleaseYear.classList.add('.book-release-year');
     })
   }
 }
