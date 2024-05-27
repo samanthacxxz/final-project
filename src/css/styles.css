@@ -162,19 +162,33 @@
 }
 
 .section-products-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.results-filter-container {
+    width: 100vw;
+    height: 50px;
+
+    grid-column: 1 / 6;
+    grid-row: 1 / 2;
+    background-color: var(--color-accent-one);
+}
+
+.render-list {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: var(--gap-size-small);
     padding: var(--gap-size-medium);
-    background-color: var(--color-accent-two);
 }
 
 .products-book-item {
     width: 100%;
     height: 100%;
     background-color: var(--color-accent-two);
-
 
     grid-column: 1fr;
     grid-row: 1fr;
@@ -183,4 +197,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.book-cover {
+    width: 180px;
+    height: 275px;
+    background-color: aliceblue;
+}
+
+.book-cover img {
+    object-fit: fill;
 }

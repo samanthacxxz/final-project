@@ -72,24 +72,28 @@ const searchingBooksInAPI = () => {
 
   // RENDERING SEARCH RESULT TO PAGE
   function renderSearchResults(results) {
-    const ul = document.querySelector('.section-products-display');
+    const ul = document.querySelector('.render-list');
 
     results.forEach(result => {
       const div = document.createElement('div');
+      div.classList.add('.products-book-item');
+
+      const bookCover = document.createElement('div');
       const bookImg = document.createElement('img');
       const bookTitle = document.createElement('div');
       const bookAuthor = document.createElement('div');
       const bookReleaseYear = document.createElement('div');
 
 
-      div.append(bookImg, bookTitle, bookAuthor, bookReleaseYear);
+      div.append(bookCover, bookTitle, bookAuthor, bookReleaseYear);
+      bookCover.append(bookImg);
       ul.append(div);
       
       //  SETTING THE CREATED CONTENT OF THE CREATED ELEMENTS
       if (result.cover_i) {
         bookImg.src = `https://covers.openlibrary.org/b/id/${result.cover_i}-M.jpg`;
       } else {
-        bookImg.src = '../src/assets/images/no-book-cover.jpg';
+        bookImg.src = '';
       }
 
       bookTitle.textContent = result.title;
@@ -99,10 +103,10 @@ const searchingBooksInAPI = () => {
 
       // ADDING CLASS TO THE ELEMENTS
 
-      div.classList.add('.products-book-item');
       bookTitle.classList.add('.book-title');
       bookAuthor.classList.add('.book-author');
       bookReleaseYear.classList.add('.book-release-year');
+      bookCover.classList.add('book-cover');
     })
   }
 }
