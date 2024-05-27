@@ -62,16 +62,24 @@ const searchingBooksInAPI = () => {
 
   // FETCH OPEN LIBRARY API BASED ON USERS SEARCH
   async function fetchBooksData(query){
-      const response = await fetch(`https://openlibrary.org/search.json?q=${(query)}`)
-      const results = await response.json();
-      
-      const limitedSearchResults = results.docs.slice(0, 10);
-      console.log(limitedSearchResults);
-      renderSearchResults(limitedSearchResults);
+    const response = await fetch(`https://openlibrary.org/search.json?q=${(query)}`)
+    const results = await response.json();
+    
+    const limitedSearchResults = results.docs.slice(0, 10);
+    const filteredSortedSearchResults = filterSearchResults(limitedSearchResults, query);
+    console.log(limitedSearchResults);
+    renderSearchResults(filteredSortedSearchResults);
+  }
+  // FILTERING THE RESULTS IN ALPHABETICAL ORDER
+  function filterSearchResults(results, query) {
+    return results
+    .filter(item => item.title.toLowerCase().includes(query.toLowerCase()))
+    .sort((a, b) => a.title.localeCompare(b.title));
   }
 
   // RENDERING SEARCH RESULT TO PAGE
   function renderSearchResults(results) {
+    const searchInput = searchBarInput;
     const ul = document.querySelector('.render-list');
 
     results.forEach(result => {
@@ -108,5 +116,13 @@ const searchingBooksInAPI = () => {
       bookReleaseYear.classList.add('.book-release-year');
       bookCover.classList.add('book-cover');
     })
+
+
+
+    // Event listener for the search input
+    searchInput.addEventListener('input', (event) => {
+      const query = event.target.value;
+      fetchBooksData(query);
+    });
   }
 }

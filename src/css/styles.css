@@ -170,7 +170,7 @@
 
 .results-filter-container {
     width: 100vw;
-    height: 50px;
+    height: 15vh;
 
     grid-column: 1 / 6;
     grid-row: 1 / 2;
