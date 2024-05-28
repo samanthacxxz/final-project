@@ -53,8 +53,8 @@ const searchingBooksInAPI = () => {
   //  HANDLING PERFORMING THE SEARCH THROUGHT THE API 
   const performSearch = () => {
       const query = searchBarInput.value.trim(); 
-      if (query.length > 1) {
-          fetchBooksData(query);
+      if (query.length > 0) {
+        fetchBooksData(query);
       }
   }
 
@@ -76,49 +76,45 @@ const searchingBooksInAPI = () => {
     const results = await response.json();
     
     const limitedSearchResults = results.docs.slice(0, 10);
-    const filteredSortedSearchResults = filterSortingSearchResults(limitedSearchResults, query);
+    filterSortingSearchResults(limitedSearchResults, query);
     console.log(limitedSearchResults);
-    renderSearchResults(filteredSortedSearchResults);
   }
-  // EVENT LISTENER FOR SEARCH INPUT
-  searchBarInput.addEventListener('input', (event) => {
-    const query = event.target.value;
-    fetchBooksData(query);
-  });
 
   // FILTERING AND SORTING THE RESULTS BASED ON SELECT VALUE
   function filterSortingSearchResults(results, query) { 
-    const filteredResults = results;
+    let filteredResults = results;
     if (filterSelect.value === 'author_a-z') {
-      filteredResults.filter(item => item.author_name && item.author_name.some(author => author.toLowerCase().includes(query.toLowerCase())));
+      filteredResults.filter(item => item.author_name);
       filteredResults.sort((a, b) => {
         const authorA = (a.author_name && a.author_name[0].toLowerCase() || '');
         const authorB = (b.author_name && b.author_name[0].toLowerCase() || '');
         return authorA.localeCompare(authorB);
-      })
+      });
     } else if (filterSelect.value === 'title_a-z') {
-      filteredResults.filter (item => item.title && item.title.sort(title => title.toLowerCase().includes(query.toLowerCase())));
-      filteredResults.sort ((a, b) => a.title.localeCompare(b.title));
-    } else if (filter.Select.value === 'oldest-recent') {
+      filteredResults.filter (item => item.title);
+      filteredResults.sort ((a, b) => a.title.toLowerCase().localeCompare(b.title));
+    } else if (filterSelect.value === 'oldest-recent') {
       filteredResults.filter (item => item.publish_year && item.publish_year.length > 0)
       filteredResults.sort ((a, b) => {
         const yearA = Math.min(...a.publish_year);
         const yearB = Math.min(...b.publish_year);
         return yearA - yearB;
-      })
+      });
     } else if (filterSelect.value === 'recent-oldest') {
       filteredResults.filter (item => item.publish_year && item.publish_year.length > 0);
       filteredResults.sort ((a, b) => {
         const yearA = Math.max(...a.publish_year);
         const yearB = Math.max(...b.publish_year);
         return yearB - yearA;
-      })
+      });
     }
-  }
+    renderSearchResults(filteredResults)
+  };
 
   // RENDERING SEARCH RESULT TO PAGE
   function renderSearchResults(results) {
     const ul = document.querySelector('.render-list');
+    ul.innerHTML = '';
 
     results.forEach(result => {
       const div = document.createElement('div');
@@ -144,7 +140,7 @@ const searchingBooksInAPI = () => {
 
       bookTitle.textContent = result.title;
       bookAuthor.textContent = result.author_name;
-      bookReleaseYear.textContent = result.publish_year[0];
+      bookReleaseYear.textContent = result.first_publish_year;
 
       // ADDING CLASS TO THE ELEMENTS
       bookTitle.classList.add('.book-title');

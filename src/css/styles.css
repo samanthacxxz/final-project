@@ -175,6 +175,11 @@
     grid-column: 1 / 6;
     grid-row: 1 / 2;
     background-color: var(--color-accent-one);
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .render-list {
