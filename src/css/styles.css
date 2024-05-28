@@ -9,6 +9,9 @@
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 1;
 
+    position: sticky;
+    top: 0;
+
 }
 
 .title-container {
@@ -55,20 +58,19 @@
     visibility: hidden;
 }
 
-.icon-signup-container img {
+.icon-account-container img {
     width: 30%;
     height: 30%;
-    visibility: hidden;
 }
 
-.icon-log-container img {
+.icon-login-logout-container img {
     width: 30%;
     height: 30%;
 }
 
 .icon-search-container,
-.icon-signup-container,
-.icon-log-container {
+.icon-account-container,
+.icon-login-logout-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
