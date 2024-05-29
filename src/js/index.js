@@ -125,11 +125,7 @@ const searchingBooksInAPI = () => {
 
   // RENDERING SEARCH RESULT TO PAGE
   function renderSearchResults(results) {
-    const displayContainer = document.querySelector('.section-products-display');
-    const ul = document.createElement('ul');
-
-    ul.classList.add('render-list');
-    displayContainer.append(ul);
+    const ul = document.querySelector('.render-list');
     ul.innerHTML = '';
 
     results.forEach(result => {
