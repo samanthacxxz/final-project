@@ -70,9 +70,12 @@ const searchingBooksInAPI = () => {
       }
   }
 
-  searchButtonIcon.addEventListener('click', (e) => {
-      performSearch();
+  const resultsSection = document.querySelector('.section-products-display');
+  searchButtonIcon.addEventListener('click', function() {
+    performSearch();
+    resultsSection.scrollIntoView({ behavior: 'smooth'});
   });
+
 
   // FILTER SELECT EVENT LISTENER
   filterSelect.addEventListener('change', () => {
@@ -163,7 +166,7 @@ const searchingBooksInAPI = () => {
   }
 }
 
-// EVENTER LISTENER - SCROLLING DOWN TO REVIEW SECTION
+// EVENT LISTENER - SCROLLING DOWN TO REVIEW SECTION
 function intoReviewSection() {
   const scrollToReviewSectionButton = document.querySelector('.review-button');
   const reviewSection = document.querySelector('.review-section-container');
@@ -173,3 +176,4 @@ function intoReviewSection() {
     reviewSection.scrollIntoView({ behavior: 'smooth'});
   })
 }
+
