@@ -53,6 +53,7 @@ export function handleLoginPage(authService, signOut, createUserWithEmailAndPass
         loginFormContainer.style.display = 'flex';
 
     });
+
     // HANDLE TO CREATE NEW USER AND ADD TO FIREBASE
     function signupUser() {
         const { signupErrorStatus } = validateSignupForm(
@@ -87,10 +88,9 @@ export function handleLoginPage(authService, signOut, createUserWithEmailAndPass
         signupUser();
         signoutButtonIcon.style.display = 'block',
         loginButtonIcon.style.display = 'none';
-    })
+    });
 
     // HANDLE SIGN OUT ACTION
-
     function signoutUser(){
         signOut(authService)
         .then(()=> {
@@ -102,19 +102,15 @@ export function handleLoginPage(authService, signOut, createUserWithEmailAndPass
 
         })
         .catch((err)=> console.log(err.message))
-
     }
     
-
     // EVENT LISTENER - SIGNOUT BUTTON/ICON
-
     signoutButton.addEventListener('click', (e) =>{
         e.preventDefault();
         signoutUser();
     })
 
     // HANDLE LOG IN ACTION
-
     function loginUser(){
         const {loginFormStatus} = validateLoginForm(
             emailInput.value,
@@ -138,14 +134,15 @@ export function handleLoginPage(authService, signOut, createUserWithEmailAndPass
         };
     };
 
+    // EVENT LISTENER - LOGIN BUTTON
     loginButton.addEventListener('click', (e)=>{
         e.preventDefault();
         loginUser();
         loginButtonIcon.style.display = 'none';
         signoutButtonIcon.style.display = 'block';
     })
-
 }
+
 
 
 
