@@ -15,12 +15,13 @@ const authService = getAuth();
 // INITIALIZE FIRESTORE DATABASE
 const database = getFirestore();
 
-// ACCESS THE SEARCH COLLECTION IN FIRESTORE
-//const searchItemsCollection = collection(database, 'searchItems');
+// CONNECT REVIEWS COLLECTION ON FIRESTORE
+const reviewsCollection = collection(database, 'reviews')
 
 // IMPORTS
 import { handleLoginPage } from "./login";
 import { commonFunctionality } from "./common";
+import { reviewValidation } from "./reviewValidation"; 
 
 // Common functionality
 document.addEventListener("DOMContentLoaded", () => {
