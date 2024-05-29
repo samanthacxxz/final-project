@@ -70,16 +70,19 @@
             <div class="review-form-container">
                 <form class="review-form">
                     <div class="review-form-group">
-                        <label for="author_name">Author</label>
-                        <input type="text">
+                        <label for="author-name">Author</label>
+                        <input type="text" name="author-name" class="author-name">
+                        <p class="review-error-message"></p>
                     </div>
                     <div class="review-form-group">
-                        <label for="title_name">Book Title</label>
-                        <input type="text">
+                        <label for="title-name">Book Title</label>
+                        <input type="text" name="title-name" class="title-name">
+                        <p class="review-error-message"></p>
                     </div>
                     <div class="review-form-group">
                         <label for="review">Review</label>
-                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                        <textarea name="review-text" class="review-text" id="" cols="30" rows="10"></textarea>
+                        <p class="review-error-message"></p>
                     </div>
                     <button class="submit-review-button">Submit Review</button>
                 </form>

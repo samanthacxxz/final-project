@@ -35,20 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-/*
-// Listen for authentication state changes
-onAuthStateChanged(authService, (user) => {
-  if (user) {
-    // User is signed in
-    signoutButtonIcon.style.display = 'block';
-    loginButtonIcon.style.display = 'none';
-  } else {
-    // User is signed out
-    signoutButtonIcon.style.display = 'none';
-    loginButtonIcon.style.display = 'block';
-  }
-});
-*/
+
 // HANDLING EVERYTHING WITHIN HOME PAGE
 export function handleHomePage() {
   commonFunctionality();
@@ -177,3 +164,13 @@ function intoReviewSection() {
   })
 }
 
+const submitReviewForm = () => {
+  const authorName = document.querySelector('.author-name');
+  const titleName = document.querySelector('.title-name');
+  const reviewText = document.querySelector('.review-text');
+
+  const submitReviewButton = document.querySelector('.submit-review-button');
+  
+
+  
+}
