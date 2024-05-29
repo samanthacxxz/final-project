@@ -230,12 +230,35 @@
 /* styles for review section */
 
 .review-section-container {
+    width: 100vw;
+    height: 90vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+
+    background-color: var(--color-accent-two);
+    padding: var(--gap-size-small);
+}
+
+.review-title {
+    font-size: var(--font-size-regular);
 }
 
 .review-form {
+    width: 30vw;
+    height: 60vh;
+    background-color: var(--color-accent-one);
+}
 
+.review-form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--gap-size-small);
+}
+
+.review-form-group input {
+    width: 70%;
+    padding-left: 5px;
 }

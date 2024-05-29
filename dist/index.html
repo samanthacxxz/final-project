@@ -60,31 +60,29 @@
                     <option value="recent-oldest">Recent to oldest</option>
                 </select>
             </div>
+            <ul class="render-list">
+                
+            </ul>
         </section>
             
         <section class="review-section-container">
-            <div>Review a book</div>
-            <fieldset>
-                <div class="review-form-container">
-                    <form class="review-form">
-                        <fieldset class="review-form-fieldset">
-                            <legend>Review</legend>
-                            <div>
-                                <label for="author_name">Author</label>
-                                <input type="text">
-                            </div>
-                            <div>
-                                <label for="title_name">Book Title</label>
-                                <input type="text">
-                            </div>
-                            <div>
-                                <label for="comment">Comment</label>
-                                <textarea name="" id="" cols="30" rows="10"></textarea>
-                            </div>
-                        </fieldset>
-                    </form>
-                </div>
-            </fieldset>
+            <div class="review-title">Review a book</div>
+            <div class="review-form-container">
+                <form class="review-form">
+                    <div class="review-form-group">
+                        <label for="author_name">Author</label>
+                        <input type="text">
+                    </div>
+                    <div class="review-form-group">
+                        <label for="title_name">Book Title</label>
+                        <input type="text">
+                    </div>
+                    <div class="review-form-group">
+                        <label for="review">Review</label>
+                        <textarea name="" id="" cols="30" rows="10"></textarea>
+                    </div>
+                </form>
+            </div>
         </section>
     </main>
     <script src="./bundle.js"></script>
