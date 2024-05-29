@@ -56,11 +56,11 @@ const reviewValidation = (authorName, titleName, comment, authorNameErrElement, 
         titleNameErrElement.style.visibilty = 'hidden';
         commentErrElement.style.visibilty = 'hidden';
     }
-    const reviewFormStatus = () => {
+    const reviewErrorStatus = () => {
         return errors.errorStatus;
     }
 
-    return { reviewFormStatus }
+    return { reviewErrorStatus }
 }
 
 const validateReviewComment = (commentInput, counterLabel, commentErr) => {

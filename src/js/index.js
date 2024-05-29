@@ -21,7 +21,7 @@ const reviewsCollection = collection(database, 'reviews')
 // IMPORTS
 import { handleLoginPage } from "./login";
 import { commonFunctionality } from "./common";
-import { reviewValidation } from "./reviewValidation"; 
+import { reviewValidation, validateReviewComment } from "./reviewValidation"; 
 
 // Common functionality
 document.addEventListener("DOMContentLoaded", () => {
@@ -172,23 +172,28 @@ const submitReviewForm = () => {
   const authorName = document.querySelector('.author-name');
   const titleName = document.querySelector('.title-name');
   const reviewText = document.querySelector('.review-text');
+  const charCount = document.querySelector('.char-count');
+
+  const reviewForm = document.querySelector('.review-form');
+
+  const authorNameError = document.querySelector('.error-author')
+  const titleNameError = document.querySelector('.error-title')
+  const reviewTextError = document.querySelector('.error-review-text')
 
   const submitReviewButton = document.querySelector('.submit-review-button');
 
+  // CALLING FUNCTION TO VALIDATE COMMENT INPUT
+  validateReviewComment(reviewText, charCount, reviewTextError);
 
-  const validateReviewComment = () => {
-    authorName.addEventListener('input', () => {
-      authorName.value.length >= 2;
-    })
-    titleName.addEventListener('input', () => {
-      titleName.value.length >= 1;
-    })
-
-    reviewText.addEventListener('keydown', (e) => {
-      if (reviewText.value.length >= 100 && e.key !== 'backspace') {
-        e.preventDefault();
-      }
-    })
+  // HANDLE SUBMIT REVIEW FORM
+  const { reviewErrorStatus } = reviewValidation(authorName, titleName, reviewText, authorNameError, titleNameError, reviewTextError);
+  if (reviewErrorStatus()) {
+    return
+  } else {
+    const newReview = {
+      reviewAuthor: authorName.value,
+      reviewTitle: titleName.value,
+      reviewComment: reviewText.value
+    }
   }
-  validateReviewComment();
 }
