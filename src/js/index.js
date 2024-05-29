@@ -4,7 +4,7 @@ console.log(firebaseConfig);
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
-//import { getFirestore } from "firebase/firstore";
+import { getFirestore } from "firebase/firstore";
 
 // INITIALIZE FIREBASE
 initializeApp(firebaseConfig);
@@ -13,7 +13,7 @@ initializeApp(firebaseConfig);
 const authService = getAuth();
 
 // INITIALIZE FIRESTORE DATABASE
-//const database = getFirestore();
+const database = getFirestore();
 
 // ACCESS THE SEARCH COLLECTION IN FIRESTORE
 //const searchItemsCollection = collection(database, 'searchItems');
@@ -41,6 +41,7 @@ export function handleHomePage() {
   commonFunctionality();
   searchingBooksInAPI();
   intoReviewSection();
+  submitReviewForm();
 }
 
 const searchingBooksInAPI = () => {
@@ -164,13 +165,29 @@ function intoReviewSection() {
   })
 }
 
+// HANDLING THE REVIEW FORM
+
 const submitReviewForm = () => {
   const authorName = document.querySelector('.author-name');
   const titleName = document.querySelector('.title-name');
   const reviewText = document.querySelector('.review-text');
 
   const submitReviewButton = document.querySelector('.submit-review-button');
-  
 
-  
+
+  const validateReviewComment = () => {
+    authorName.addEventListener('input', () => {
+      authorName.value.length >= 2;
+    })
+    titleName.addEventListener('input', () => {
+      titleName.value.length >= 1;
+    })
+
+    reviewText.addEventListener('keydown', (e) => {
+      if (reviewText.value.length >= 100 && e.key !== 'backspace') {
+        e.preventDefault();
+      }
+    })
+  }
+  validateReviewComment();
 }
