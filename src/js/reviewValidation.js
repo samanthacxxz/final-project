@@ -63,4 +63,25 @@ const reviewValidation = (authorName, titleName, comment, authorNameErrElement, 
     return { reviewFormStatus }
 }
 
-export { reviewValidation }
+const validateReviewComment = (commentInput, counterLabel, commentErr) => {
+    commentInput.addEventlistener('input', () => {
+        counterLabel.textContent = `Typed characters: ${commentInput.value.length}`;
+
+        if (commentInput.value.length > 300) {
+            counterLabel.style.color = 'red';
+            commentErr.textContent = 'The review must not exceed over 300 characters!';
+            commentErr.style.visibility = 'visible'; 
+        } else {
+            counterLabel.style.color = 'black';
+            commentErr.style.visibility = 'hidden'; 
+        }
+    })
+
+    commentErr.addEventlistener('keydown', (e) => {
+        if (commentInput.value.length > 300 && e.key !== 'Backspace') {
+            e.preventDefault();
+        } 
+    })
+}
+
+export { reviewValidation, validateReviewComment }
