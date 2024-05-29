@@ -246,9 +246,21 @@
 }
 
 .review-form {
+    display: flex;
+    flex-direction: column;
     width: 30vw;
     height: 60vh;
     background-color: var(--color-accent-one);
+
+    border-radius: 20px;
+}
+
+.review-form button {
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .review-form-group {
