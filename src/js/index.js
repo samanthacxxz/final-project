@@ -2,7 +2,7 @@ import firebaseConfig from "./firebaseConfig";
 console.log(firebaseConfig);
 
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
 //import { getFirestore } from "firebase/firstore";
 
@@ -26,23 +26,34 @@ import { commonFunctionality } from "./common";
 document.addEventListener("DOMContentLoaded", () => {
     const bodyClass = document.body.classList;
 
-    commonFunctionality(bodyClass);
+    commonFunctionality(bodyClass, authService);
     
     if (bodyClass.contains('login-page')) {
       handleLoginPage(authService, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword);
-    } else if (bodyClass.contains('products-page')) {
-      handleProductsPage();
     } else if (bodyClass.contains('home-page')) {
         handleHomePage();
     }
 });
 
+/*
+// Listen for authentication state changes
+onAuthStateChanged(authService, (user) => {
+  if (user) {
+    // User is signed in
+    signoutButtonIcon.style.display = 'block';
+    loginButtonIcon.style.display = 'none';
+  } else {
+    // User is signed out
+    signoutButtonIcon.style.display = 'none';
+    loginButtonIcon.style.display = 'block';
+  }
+});
+*/
 // HANDLING EVERYTHING WITHIN HOME PAGE
-
 export function handleHomePage() {
+  commonFunctionality();
   searchingBooksInAPI();
 }
-
 
 const searchingBooksInAPI = () => {
   const searchBarInput = document.querySelector('.search-bar-input');
