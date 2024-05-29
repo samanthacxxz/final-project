@@ -53,6 +53,7 @@ onAuthStateChanged(authService, (user) => {
 export function handleHomePage() {
   commonFunctionality();
   searchingBooksInAPI();
+  intoReviewSection();
 }
 
 const searchingBooksInAPI = () => {
@@ -160,4 +161,15 @@ const searchingBooksInAPI = () => {
       bookCover.classList.add('book-cover');
     })
   }
+}
+
+// EVENTER LISTENER - SCROLLING DOWN TO REVIEW SECTION
+function intoReviewSection() {
+  const scrollToReviewSectionButton = document.querySelector('.review-button');
+  const reviewSection = document.querySelector('.review-section-container');
+
+  scrollToReviewSectionButton.addEventListener('click', function(){
+    
+    reviewSection.scrollIntoView({ behavior: 'smooth'});
+  })
 }
