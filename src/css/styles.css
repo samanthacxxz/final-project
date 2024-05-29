@@ -151,6 +151,17 @@
     background-color: none;
 }
 
+.search-button-container:hover {
+    border: 1px solid var(--color-main);
+}
+
+.review-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 
 /* SEARCH RESULTS - PRODUCTS CONTAINER */
 
@@ -189,7 +200,7 @@
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: var(--gap-size-small);
-    padding: var(--gap-size-medium);
+    padding: var(--gap-size-small);
 }
 
 .products-book-item {
@@ -214,4 +225,13 @@
 
 .book-cover img {
     object-fit: fill;
+}
+
+/* styles for review section */
+
+.review-section-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
