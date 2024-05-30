@@ -191,7 +191,7 @@ const submitReviewForm = () => {
   submitReviewButton.addEventListener('click', (e) => {
     e.preventDefault();
 
-    const { reviewErrorStatus } = reviewValidation(authorName, titleName, reviewText, authorNameError, titleNameError, reviewTextError);
+    const { reviewErrorStatus } = reviewValidation(authorName.value, titleName.value, reviewText.value, authorNameError, titleNameError, reviewTextError);
     if (reviewErrorStatus()) {
       return
     } else {
