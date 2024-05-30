@@ -2,15 +2,18 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { handleHomePage } from "./index";
 import { handleLoginPage } from "./login";
 
-export function commonFunctionality(bodyClass){
+export function commonFunctionality(){
     const authService = getAuth();
     
     const homePageButton = document.querySelector('.header-title');
     const myAccountButton = document.querySelector('.icon-account-container');
     const signoutButtonIcon = document.querySelector('.button-log_out')
 
+    const bodyClass = document.body.classList;
+
     // HANDLING BUTTOM REDIRECTING TO HOME PAGE
     homePageButton.addEventListener('click', (e) => {
+        console.log('Home page button clicked!')
         if (bodyClass.contains('home-page')) {
             handleHomePage();
         } else {

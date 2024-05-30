@@ -29,7 +29,7 @@ let reviewsArray = [];
 document.addEventListener("DOMContentLoaded", () => {
     const bodyClass = document.body.classList;
 
-    commonFunctionality(bodyClass, authService);
+    commonFunctionality(authService);
     
     if (bodyClass.contains('login-page')) {
       handleLoginPage(authService, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword);
