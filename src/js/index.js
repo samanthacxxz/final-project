@@ -88,7 +88,7 @@ const searchingBooksInAPI = () => {
   }
 
   // FILTERING AND SORTING THE RESULTS BASED ON SELECT VALUE
-  function filterSortingSearchResults(results, query) { 
+  function filterSortingSearchResults(results) { 
     let filteredResults = results;
     if (filterSelect.value === 'author_a-z') {
       filteredResults.filter(item => item.author_name);
@@ -238,21 +238,23 @@ const renderReviews = (reviewsArray) => {
     const div = document.createElement('div');
     div.classList.add('review-box');
 
-    const reviewAuthorName = document.createElement('div');
     const reviewTitleName = document.createElement('div');
+    const reviewAuthorName = document.createElement('div');
     const reviewComment = document.createElement('div');
+    const reviewID = document.createElement('div');
 
     // 
-    div.append(reviewAuthorName, reviewTitleName, reviewComment);
+    div.append(reviewTitleName, reviewAuthorName, reviewID, reviewComment);
     ul.append(div);
     //
-    reviewAuthorName.textContent = review.reviewAuthor;
     reviewTitleName.textContent = review.reviewTitle;
-    reviewComment.textContent = review.reviewComment;
-    
+    reviewAuthorName.textContent = review.reviewAuthor;
+    reviewID.textContent = `review ID: ${review.id}`;
+    reviewComment.textContent = review.reviewComment;    
     //
-    reviewAuthorName.classList.add('review-author');
     reviewTitleName.classList.add('review-book-title');
+    reviewAuthorName.classList.add('review-author');
+    reviewID.classList.add('review-id');
     reviewComment.classList.add('review-comment');
   })
 }
