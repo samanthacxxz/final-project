@@ -178,6 +178,7 @@
 
 
 /* STYLES FOR REVIEW - RENDERING*/
+
 .rendered-reviews-container {
     background-color: var(--color-accent-one);
 }
@@ -186,6 +187,14 @@
     padding: var(--gap-size-large);
     font-family: 'PlayfairDisplay-Bold';
     font-size: var(--font-size-large);
+}
+
+.rendered-reviews-ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: var(--gap-size-small);
+    padding: var(--gap-size-small);
 }
 
 .review-box {
@@ -261,8 +270,7 @@
     align-items: center;
 }
 
-.render-list,
-.rendered-reviews-ul {
+.render-list {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(2, 1fr);
