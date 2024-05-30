@@ -62,12 +62,12 @@ const searchingBooksInAPI = () => {
       }
   }
 
-  const resultsSection = document.querySelector('.section-products-display');
+  // SCROLLING TO SEARCH RESULTS SECTION
+  const scrollToResultsSection = document.querySelector('.section-products-display');
   searchButtonIcon.addEventListener('click', function() {
     performSearch();
-    resultsSection.scrollIntoView({ behavior: 'smooth'});
+    scrollToResultsSection.scrollIntoView({ behavior: 'smooth'});
   });
-
 
   // FILTER SELECT EVENT LISTENER
   filterSelect.addEventListener('change', () => {
@@ -121,7 +121,10 @@ const searchingBooksInAPI = () => {
   // RENDERING SEARCH RESULT TO PAGE
   function renderSearchResults(results) {
     const ul = document.querySelector('.render-list');
+    const filterContainer = document.querySelector('.results-filter-container');
+
     ul.innerHTML = '';
+    filterContainer.style.visibility = 'visible';
 
     results.forEach(result => {
       const div = document.createElement('div');
@@ -160,12 +163,18 @@ const searchingBooksInAPI = () => {
 
 // EVENT LISTENER - SCROLLING DOWN TO REVIEW SECTION
 function intoReviewSection() {
-  const scrollToReviewSectionButton = document.querySelector('.review-button');
-  const reviewSection = document.querySelector('.review-section-container');
+  const scrollToReviewFormButton = document.querySelector('.write-review');
+  const reviewFormSection = document.querySelector('.review-section-container');
 
-  scrollToReviewSectionButton.addEventListener('click', function(){
-    
-    reviewSection.scrollIntoView({ behavior: 'smooth'});
+  scrollToReviewFormButton.addEventListener('click', function(){
+    reviewFormSection.scrollIntoView({ behavior: 'smooth'});
+  })
+
+  const scrollToRenderedReviewsButton = document.querySelector('.read-reviews');
+  const renderedReviewsSection = document.querySelector('.rendered-reviews-container');
+
+  scrollToRenderedReviewsButton.addEventListener('click', function(){
+    renderedReviewsSection.scrollIntoView({ behavior: 'smooth'})
   })
 }
 
@@ -232,6 +241,7 @@ const renderReviews = (reviewsArray) => {
   const ul = document.querySelector('.rendered-reviews-ul');
   ul.textContent =  '';
 
+
   reviewsArray.forEach((review) => {
 
     //
@@ -257,4 +267,5 @@ const renderReviews = (reviewsArray) => {
     reviewID.classList.add('review-id');
     reviewComment.classList.add('review-comment');
   })
+
 }
