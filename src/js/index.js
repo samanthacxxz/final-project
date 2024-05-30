@@ -223,7 +223,7 @@ function fetchReviews() {
     snapshot.docs.forEach((review) => {
       reviewsArray.push({id: review.id, ...review.data()})
     });
-    console.log(reviewsArray);
+    renderReviews(reviewsArray);
   });
 };
 
