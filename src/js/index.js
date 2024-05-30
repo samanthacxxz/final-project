@@ -223,14 +223,16 @@ function fetchReviews() {
     snapshot.docs.forEach((review) => {
       reviewsArray.push({id: review.id, ...review.data()})
     });
+    console.log(reviewsArray)
     renderReviews(reviewsArray);
   });
 };
 
-const renderReviews = () => {
-  const ul = document.querySelector('.rendered-reviews-ul')
+const renderReviews = (reviewsArray) => {
+  const ul = document.querySelector('.rendered-reviews-ul');
+  ul.textContent =  '';
+
   reviewsArray.forEach((review) => {
-    ul.textContent =  '';
 
     //
     const div = document.createElement('div');
@@ -238,20 +240,19 @@ const renderReviews = () => {
 
     const reviewAuthorName = document.createElement('div');
     const reviewTitleName = document.createElement('div');
-    const reviewComment = document.createElement('p');
+    const reviewComment = document.createElement('div');
 
     // 
-    ul.append(div);
     div.append(reviewAuthorName, reviewTitleName, reviewComment);
-
+    ul.append(div);
     //
-    reviewAuthorName.textContent = review.reviewAthor;
+    reviewAuthorName.textContent = review.reviewAuthor;
     reviewTitleName.textContent = review.reviewTitle;
     reviewComment.textContent = review.reviewComment;
     
     //
     reviewAuthorName.classList.add('review-author');
-    reviewTitleName.classList.add('review-title');
+    reviewTitleName.classList.add('review-book-title');
     reviewComment.classList.add('review-comment');
   })
 }
