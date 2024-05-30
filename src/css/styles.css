@@ -180,11 +180,12 @@
 /* STYLES FOR REVIEW - RENDERING*/
 
 .rendered-reviews-container {
+    height: 100vh;
     background-color: var(--color-accent-one);
 }
 
 .rendered-reviews-title {
-    padding: var(--gap-size-large);
+    padding: var(--gap-size-small);
     font-family: 'PlayfairDisplay-Bold';
     font-size: var(--font-size-large);
 }
@@ -306,7 +307,7 @@
 
 .review-section-container {
     width: 100vw;
-    height: 90vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
