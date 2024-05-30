@@ -4,7 +4,7 @@ console.log(firebaseConfig);
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc, onSnapshot } from "firebase/firestore";
 
 // INITIALIZE FIREBASE
 initializeApp(firebaseConfig);
@@ -22,6 +22,8 @@ const reviewsCollection = collection(database, 'reviews')
 import { handleLoginPage } from "./login";
 import { commonFunctionality } from "./common";
 import { reviewValidation, validateReviewComment } from "./reviewValidation"; 
+
+let reviewsArray = [];
 
 // Common functionality
 document.addEventListener("DOMContentLoaded", () => {
@@ -43,6 +45,7 @@ export function handleHomePage() {
   searchingBooksInAPI();
   intoReviewSection();
   submitReviewForm();
+  fetchReviews();
 }
 
 const searchingBooksInAPI = () => {
@@ -167,7 +170,6 @@ function intoReviewSection() {
 }
 
 // HANDLING THE REVIEW FORM
-
 const submitReviewForm = () => {
   const authorName = document.querySelector('.author-name');
   const titleName = document.querySelector('.title-name');
@@ -210,8 +212,17 @@ const submitReviewForm = () => {
         }, 2000)
       }).catch(() => {
         successMessage.textContent = 'Review submission failed';
-      })
-    }
-  })
+      });
+    };
+  });
+};
 
-}
+function fetchReviews() {
+  onSnapshot(reviewsCollection, (snapshot) => {
+    reviewsArray = [];
+    snapshot.docs.forEach((review) => {
+      reviewsArray.push({id: review.id, ...review.data()})
+    });
+    console.log(reviewsArray);
+  });
+};
