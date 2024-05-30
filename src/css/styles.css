@@ -8,10 +8,6 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 1;
-
-    position: sticky;
-    top: 0;
-
 }
 
 .title-container {
@@ -160,12 +156,26 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    width: 10rem;
+    height: 2rem;
+    background-color: var(--color-accent-three);
+    border-radius: 20px;
 }
 
-.write-read-reviews {
+.review-button:hover {
+    border: 1rem;
+}
+
+.write-read-reviews{
     display: flex;
     flex-direction: row;
+
+    font-size: var(--font-size-regular);
+    font-family: 'PlayfairDisplay-SemiBold';
 }
+
+
 
 /* STYLES FOR REVIEW - RENDERING*/
 .rendered-reviews-container {
@@ -236,6 +246,8 @@
 }
 
 .results-filter-container {
+    visibility: hidden;
+    
     width: 100vw;
     height: 10vh;
 
