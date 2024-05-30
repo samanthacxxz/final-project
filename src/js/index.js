@@ -4,7 +4,7 @@ console.log(firebaseConfig);
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signOut, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
-import { getFirestore } from "firebase/firstore";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 // INITIALIZE FIREBASE
 initializeApp(firebaseConfig);
@@ -176,9 +176,11 @@ const submitReviewForm = () => {
 
   const reviewForm = document.querySelector('.review-form');
 
-  const authorNameError = document.querySelector('.error-author')
-  const titleNameError = document.querySelector('.error-title')
-  const reviewTextError = document.querySelector('.error-review-text')
+  const authorNameError = document.querySelector('.error-author');
+  const titleNameError = document.querySelector('.error-title');
+  const reviewTextError = document.querySelector('.error-review-text');
+
+  const successMessage = document.querySelector('.success-message');
 
   const submitReviewButton = document.querySelector('.submit-review-button');
 
@@ -195,5 +197,16 @@ const submitReviewForm = () => {
       reviewTitle: titleName.value,
       reviewComment: reviewText.value
     }
+    addDoc(reviewsCollection, newReview)
+    .then(()=> {
+      reviewForm.reset();
+      successMessage.style.visibility = '';
+      successMessage.textContent = 'Review submitted successfully!';
+      setTimeout(() => {
+        successMessage.style.visibility = 'hidden';
+      }, 2000)
+    }).catch(() => {
+      successMessage.textContent = 'Review submission failed';
+    })
   }
 }

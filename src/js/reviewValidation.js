@@ -64,7 +64,7 @@ const reviewValidation = (authorName, titleName, comment, authorNameErrElement, 
 }
 
 const validateReviewComment = (commentInput, counterLabel, commentErr) => {
-    commentInput.addEventlistener('input', () => {
+    commentInput.addEventListener('input', () => {
         counterLabel.textContent = `Typed characters: ${commentInput.value.length}`;
 
         if (commentInput.value.length > 300) {
@@ -77,7 +77,7 @@ const validateReviewComment = (commentInput, counterLabel, commentErr) => {
         }
     })
 
-    commentErr.addEventlistener('keydown', (e) => {
+    commentErr.addEventListener('keydown', (e) => {
         if (commentInput.value.length > 300 && e.key !== 'Backspace') {
             e.preventDefault();
         } 
