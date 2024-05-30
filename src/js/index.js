@@ -188,25 +188,30 @@ const submitReviewForm = () => {
   validateReviewComment(reviewText, charCount, reviewTextError);
 
   // HANDLE SUBMIT REVIEW FORM
-  const { reviewErrorStatus } = reviewValidation(authorName, titleName, reviewText, authorNameError, titleNameError, reviewTextError);
-  if (reviewErrorStatus()) {
-    return
-  } else {
-    const newReview = {
-      reviewAuthor: authorName.value,
-      reviewTitle: titleName.value,
-      reviewComment: reviewText.value
+  submitReviewButton.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const { reviewErrorStatus } = reviewValidation(authorName, titleName, reviewText, authorNameError, titleNameError, reviewTextError);
+    if (reviewErrorStatus()) {
+      return
+    } else {
+      const newReview = {
+        reviewAuthor: authorName.value,
+        reviewTitle: titleName.value,
+        reviewComment: reviewText.value
+      }
+      addDoc(reviewsCollection, newReview)
+      .then(()=> {
+        reviewForm.reset();
+        successMessage.style.visibility = '';
+        successMessage.textContent = 'Review submitted successfully!';
+        setTimeout(() => {
+          successMessage.style.visibility = 'hidden';
+        }, 2000)
+      }).catch(() => {
+        successMessage.textContent = 'Review submission failed';
+      })
     }
-    addDoc(reviewsCollection, newReview)
-    .then(()=> {
-      reviewForm.reset();
-      successMessage.style.visibility = '';
-      successMessage.textContent = 'Review submitted successfully!';
-      setTimeout(() => {
-        successMessage.style.visibility = 'hidden';
-      }, 2000)
-    }).catch(() => {
-      successMessage.textContent = 'Review submission failed';
-    })
-  }
+  })
+
 }
