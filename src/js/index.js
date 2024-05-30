@@ -226,3 +226,32 @@ function fetchReviews() {
     console.log(reviewsArray);
   });
 };
+
+const renderReviews = () => {
+  const ul = document.querySelector('.rendered-reviews-ul')
+  reviewsArray.forEach((review) => {
+    ul.textContent =  '';
+
+    //
+    const div = document.createElement('div');
+    div.classList.add('review-box');
+
+    const reviewAuthorName = document.createElement('div');
+    const reviewTitleName = document.createElement('div');
+    const reviewComment = document.createElement('p');
+
+    // 
+    ul.append(div);
+    div.append(reviewAuthorName, reviewTitleName, reviewComment);
+
+    //
+    reviewAuthorName.textContent = review.reviewAthor;
+    reviewTitleName.textContent = review.reviewTitle;
+    reviewComment.textContent = review.reviewComment;
+    
+    //
+    reviewAuthorName.classList.add('review-author');
+    reviewTitleName.classList.add('review-title');
+    reviewComment.classList.add('review-comment');
+  })
+}
