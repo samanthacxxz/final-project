@@ -176,11 +176,10 @@
 }
 
 
-
 /* STYLES FOR REVIEW - RENDERING*/
 
 .rendered-reviews-container {
-    height: 100vh;
+    height: 100%;
     background-color: var(--color-accent-one);
 }
 
@@ -221,7 +220,7 @@
     font-size: var(--font-size-small);
 }
 
-.review-ID {
+.review-id {
     font-size: var(--font-size-small);
 }
 
