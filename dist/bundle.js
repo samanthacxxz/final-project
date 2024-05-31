@@ -66,7 +66,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
-eval("__webpack_require__.r(__webpack_exports__);\nconst firebaseConfig = {\n  apiKey: `${AIzaSyAFad86HmK48XkBMDTkGwYHehUga_XDU60}`,\n  authDomain: \"final-project-5f1e6.firebaseapp.com\",\n  projectId: \"final-project-5f1e6\",\n  storageBucket: \"final-project-5f1e6.appspot.com\",\n  messagingSenderId: \"705803816617\",\n  appId: \"1:705803816617:web:ac5e4bb3c132f49d73a3b8\"\n};\n/* harmony default export */ __webpack_exports__[\"default\"] = (firebaseConfig);\n\n//# sourceURL=webpack://final-project/./src/js/firebaseConfig.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nconst firebaseConfig = {\n  apiKey: `${FIREBASE_API_KEY}`,\n  authDomain: \"final-project-5f1e6.firebaseapp.com\",\n  projectId: \"final-project-5f1e6\",\n  storageBucket: \"final-project-5f1e6.appspot.com\",\n  messagingSenderId: \"705803816617\",\n  appId: \"1:705803816617:web:ac5e4bb3c132f49d73a3b8\"\n};\n/* harmony default export */ __webpack_exports__[\"default\"] = (firebaseConfig);\n\n//# sourceURL=webpack://final-project/./src/js/firebaseConfig.js?");
 
 /***/ }),
 
