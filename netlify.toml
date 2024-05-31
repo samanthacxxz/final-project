@@ -3,7 +3,7 @@
 # Build settings
 [build]
   command = "npm run build" 
-  publish = ""          
+  publish = "dist"          
 
 # Redirects
 [[redirects]]
