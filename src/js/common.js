@@ -18,7 +18,7 @@ export function commonFunctionality(){
             handleHomePage();
         } else {
             // Redirect to the home page
-            window.location.href = 'file:///Users/SamanthaCruz/sacr001/Sites/11/final-project/dist/index.html'; // Replace '/' with the actual URL of your home page
+            window.location.href = 'index.html'; // Replace '/' with the actual URL of your home page
         }
     });
 
