@@ -27,7 +27,7 @@ export function commonFunctionality(){
         if (bodyClass.contains('login-page')) {
             handleLoginPage(authService);
         } else {
-            window.location.href = 'file:///Users/SamanthaCruz/sacr001/Sites/11/final-project/dist/login.html';
+            window.location.href = 'login.html';
         }
     })
 
