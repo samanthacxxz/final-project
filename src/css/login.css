@@ -67,6 +67,11 @@ legend {
     
 }
 
+.signup-form__open {
+    background: none;
+    cursor: pointer;
+}
+
 .input-email,
 .input-password,
 .input-signup-firstname,
@@ -98,7 +103,6 @@ legend {
     background-color: var(--color-main);
     color:aliceblue;
     border-radius: 30px;
-    
 }
 
 /* STYLES FOR SIGNUP FORM */
